@@ -62,13 +62,7 @@ assert zeroes(30) == 7
 def bananas(s) -> set:
 
     def indices(elem, l) -> list[int]:
-        result: list[int] = list()
-
-        for index , i in enumerate(l):
-            if i == elem:
-                result.append(index)
-
-        return result
+        return [index for index, item in enumerate(l) if item == elem]
 
 
     comb_b: list[int] = list(itertools.combinations(indices('b', s), 1))
