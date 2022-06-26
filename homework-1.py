@@ -24,7 +24,7 @@ def int32_to_ip(int32):
 
     for i in range(0, 32, 8):
         octet: str = binary[i:i+8]
-        number: int = int(octet , 2)
+        number: int = int(octet, 2)
         numbers.append(str(number))
 
     ip: str = ".".join(numbers)
@@ -35,7 +35,6 @@ def int32_to_ip(int32):
 assert int32_to_ip(2154959208) == "128.114.17.104"
 assert int32_to_ip(0) == "0.0.0.0"
 assert int32_to_ip(2149583361) == "128.32.10.1"
-
 
 
 #  Задача 3
@@ -51,6 +50,7 @@ def zeroes(n):
 
     return zero_count
 
+
 assert zeroes(0) == 0
 assert zeroes(6) == 1
 assert zeroes(30) == 7
@@ -63,7 +63,6 @@ def bananas(s) -> set:
 
     def indices(elem, l) -> list[int]:
         return [index for index, item in enumerate(l) if item == elem]
-
 
     comb_b: list[int] = list(itertools.combinations(indices('b', s), 1))
     comb_a: list[int] = list(itertools.combinations(indices('a', s), 3))
@@ -97,11 +96,11 @@ def bananas(s) -> set:
 assert bananas("banann") == set()
 assert bananas("banana") == {"banana"}
 assert bananas("bbananana") == {"b-an--ana", "-banana--", "-b--anana", "b-a--nana", "-banan--a",
-                     "b-ana--na", "b---anana", "-bana--na", "-ba--nana", "b-anan--a",
-                     "-ban--ana", "b-anana--"}
+                                "b-ana--na", "b---anana", "-bana--na", "-ba--nana", "b-anan--a",
+                                "-ban--ana", "b-anana--"}
 assert bananas("bananaaa") == {"banan-a-", "banana--", "banan--a"}
-assert bananas("bananana") == {"ban--ana", "ba--nana", "bana--na", "b--anana", "banana--", "banan--a"}
-
+assert bananas("bananana") == {"ban--ana", "ba--nana",
+                               "bana--na", "b--anana", "banana--", "banan--a"}
 
 
 # Задача 5
@@ -124,7 +123,6 @@ def count_find_num(primesL, limit):
 
         return result
 
-
     def product(iterable):
         result: int = 1
 
@@ -132,7 +130,6 @@ def count_find_num(primesL, limit):
             result *= i
 
         return result
-    
 
     results: list[(int, int)] = list()
     comb_length: int = len(primesL)
@@ -140,10 +137,11 @@ def count_find_num(primesL, limit):
     while True:
 
         combs: list[int]
-        combs = list(itertools.combinations_with_replacement(primesL, comb_length))
-        combs = filter(lambda l : contains_all(primesL, l), combs)
+        combs = list(itertools.combinations_with_replacement(
+            primesL, comb_length))
+        combs = filter(lambda l: contains_all(primesL, l), combs)
 
-        products: list[int] = map(lambda x : product(x), combs)
+        products: list[int] = map(lambda x: product(x), combs)
 
         all_greater_than_limit: bool = True
 
