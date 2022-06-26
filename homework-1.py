@@ -25,7 +25,7 @@ def int32_to_ip(int32):
     for i in range(0, 32, 8):
         octet: str = binary[i:i+8]
         number: int = int(octet , 2)
-        numbers.append(str( number ))
+        numbers.append(str(number))
 
     ip: str = ".".join(numbers)
 
@@ -45,7 +45,7 @@ def zeroes(n):
     if n == 0:
         return 0
 
-    k_range: range = range(1, math.floor( math.log(n, 5) ) + 1)
+    k_range: range = range(1, math.floor(math.log(n, 5)) + 1)
 
     zero_count: int = sum([math.floor(n / math.pow(5, k)) for k in k_range])
 
@@ -113,20 +113,21 @@ def count_find_num(primesL, limit):
         result: bool = True
 
         for e in elems:
-            contains: bool = False
+            match: bool = False
 
             for i in iterable:
-                contains = i == e
-                if contains:
+                match = i == e
+                if match:
                     break
 
-            result = result and contains
+            result = result and match
 
         return result
 
 
     def product(iterable):
         result: int = 1
+
         for i in iterable:
             result *= i
 
