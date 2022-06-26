@@ -19,7 +19,7 @@ assert domain_name("https://youtube.com") == "youtube"
 
 
 def int32_to_ip(int32):
-    binary: str = bin(int32).removeprefix("0b").ljust(32, '0')
+    binary: str = bin(int32).removeprefix("0b").rjust(32, '0')
     numbers: list[str] = []
 
     for i in range(0, 32, 8):
