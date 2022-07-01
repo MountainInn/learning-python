@@ -39,6 +39,11 @@ class Movie:
     dates: List[Tuple[datetime, datetime]]
 
     def schedule(self) -> Generator[datetime, None, None]:
+        for date_range in self.dates:
+            current_date : datetime = date_range[0]
+            while current_date <= date_range[1]:
+                yield current_date
+                current_date += timedelta(days=1)
         return []
 
 
