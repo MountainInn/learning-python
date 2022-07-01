@@ -1,8 +1,6 @@
 from sys import float_info
 from math import dist
 from itertools import permutations
-from typing import List, Tuple
-from dataclasses import dataclass
 
 start = (0,2)
 points = [
@@ -35,7 +33,7 @@ class Path:
         steps = "".join([f" -> {self.points[i]}[{self.distances[i]}]" for i in range(len( self.points )) ])
         return f'{self.starting_point}{steps} = {self.get_total_distance()}'
 
-results : List[Path] = list()
+results = list()
 
 for path in possible_paths:
     current_point = start
