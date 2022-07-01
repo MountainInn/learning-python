@@ -25,6 +25,10 @@ cyclic_iterator = CyclicIterator(range(3))
 iteration_count = 0
 break_after = 10
 
+print("\n\nProblem 1")
+print("Cyclic iterator")
+print()
+
 for i in cyclic_iterator:
     print(i)
     iteration_count += 1
@@ -51,6 +55,11 @@ m = Movie('sw', [
   (datetime(2020, 1, 1), datetime(2020, 1, 7)),
   (datetime(2020, 1, 15), datetime(2020, 2, 7))
 ])
+
+
+print("\n\nProblem 2")
+print("Array expansion")
+print()
 
 for d in m.schedule():
     print(d)
