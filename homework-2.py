@@ -1,13 +1,12 @@
 from dataclasses import dataclass
 from datetime import datetime, timedelta
-from typing import Generator, List, Tuple, Iterable, Iterator
+from typing import Generator, List, Tuple, Iterable
 
 # Задача 1
 
 class CyclicIterator:
 
-
-    def __init__(self, iterable):
+    def __init__(self, iterable : Iterable):
         self.iterable = iterable
         self.iterator = iter(iterable)
 
