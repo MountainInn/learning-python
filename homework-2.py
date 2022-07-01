@@ -25,7 +25,7 @@ cyclic_iterator = CyclicIterator(range(3))
 iteration_count = 0
 break_after = 10
 
-print("\n\nProblem 1")
+print("\n\nProblem 2.1")
 print("Cyclic iterator")
 print()
 
@@ -57,7 +57,7 @@ m = Movie('sw', [
 ])
 
 
-print("\n\nProblem 2")
+print("\n\nProblem 2.2")
 print("Array expansion")
 print()
 
