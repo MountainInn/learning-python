@@ -4,9 +4,10 @@ from typing import Generator, List, Tuple, Iterable
 
 # Задача 1
 
+
 class CyclicIterator:
 
-    def __init__(self, iterable : Iterable):
+    def __init__(self, iterable: Iterable):
         self.iterable = iterable
         self.iterator = iter(iterable)
 
@@ -37,6 +38,7 @@ for i in cyclic_iterator:
 
 # Задача 2
 
+
 @dataclass
 class Movie:
     title: str
@@ -44,7 +46,7 @@ class Movie:
 
     def schedule(self) -> Generator[datetime, None, None]:
         for date_tuple in self.dates:
-            current_date : datetime = date_tuple[0]
+            current_date: datetime = date_tuple[0]
             while current_date <= date_tuple[1]:
                 yield current_date
                 current_date += timedelta(days=1)
@@ -52,8 +54,8 @@ class Movie:
 
 
 m = Movie('sw', [
-  (datetime(2020, 1, 1), datetime(2020, 1, 7)),
-  (datetime(2020, 1, 15), datetime(2020, 2, 7))
+    (datetime(2020, 1, 1), datetime(2020, 1, 7)),
+    (datetime(2020, 1, 15), datetime(2020, 2, 7))
 ])
 
 
