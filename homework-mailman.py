@@ -49,9 +49,11 @@ for perm in points_permutations:
 shortest_distance = float_info.max
 shortest_index = -1
 
-    if res.get_total_distance() < min_distance:
-        min_index = index
 for index , path in enumerate( paths ):
+    distance = path.get_total_distance()
+    if distance < shortest_distance:
+        shortest_distance = distance
+        shortest_index = index
 
 shortest_path = paths[shortest_index]
 
