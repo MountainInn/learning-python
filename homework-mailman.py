@@ -44,15 +44,8 @@ for perm in points_permutations:
 
     paths.append(path)
 
-shortest_distance = float_info.max
-shortest_index = -1
 
-for index , path in enumerate( paths ):
-    distance = path.get_total_distance()
-    if distance < shortest_distance:
-        shortest_distance = distance
-        shortest_index = index
 
-shortest_path = paths[shortest_index]
+shortest_path = min(enumerate(paths), key=lambda pair: pair[1].get_total_distance())[1]
 
 print(shortest_path)
