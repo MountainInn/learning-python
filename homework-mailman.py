@@ -18,9 +18,6 @@ class Path:
         self.points = list()
         self.distances = list()
 
-    def __repr__(self): 
-        steps = "".join([f" -> {self.points[i]}[{self.distances[i]}]" for i in range(len( self.points )) ])
-        return f'{self.starting_point}{steps} = {self.get_total_distance()}'
 
     def append(self, point : tuple[ int, int ], distance : float):
         distance += self.get_total_distance()
@@ -36,6 +33,11 @@ paths = list()
 for perm in points_permutations:
     current_point = start
     path : Path = Path(start)
+    def __repr__(self):
+        points_range = range(len( self.points ))
+        steps = [f' -> {self.points[i]}[{self.distances[i]}]' for i in points_range]
+        steps_string = "".join(steps)
+        return f'{self.starting_point}{steps_string} = {self.get_total_distance()}'
 
     for next_point in perm:
         distance = dist(current_point, next_point)
