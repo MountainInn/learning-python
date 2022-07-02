@@ -18,16 +18,14 @@ class Path:
         self.points = list()
         self.distances = list()
 
-    def append(self, point : Point, distance : float):
-        self.points.append(point)
-
-        if self.distances:
-            distance += self.distances[-1]
     def __repr__(self): 
         steps = "".join([f" -> {self.points[i]}[{self.distances[i]}]" for i in range(len( self.points )) ])
         return f'{self.starting_point}{steps} = {self.get_total_distance()}'
 
+    def append(self, point : tuple[ int, int ], distance : float):
+        distance += self.get_total_distance()
         self.distances.append(distance)
+        self.points.append(point)
 
     def get_total_distance(self):
         return self.distances[-1] if self.distances else 0
