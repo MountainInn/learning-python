@@ -10,7 +10,7 @@ points = [
     (8,3),
     ]
 
-possible_paths = list( permutations(points) )
+points_permutations = list( permutations(points) )
 
 class Path:
     def __init__(self, starting_point):
@@ -33,26 +33,26 @@ class Path:
         steps = "".join([f" -> {self.points[i]}[{self.distances[i]}]" for i in range(len( self.points )) ])
         return f'{self.starting_point}{steps} = {self.get_total_distance()}'
 
-results = list()
+paths = list()
 
-for path in possible_paths:
+for perm in points_permutations:
     current_point = start
-    result_path : Path = Path(start)
+    path : Path = Path(start)
 
-    for next_point in points:
+    for next_point in perm:
         distance = dist(current_point, next_point)
-        result_path.append(next_point, distance)
+        path.append(next_point, distance)
         current_point = next_point
 
-    results.append(result_path)
+    paths.append(path)
 
-min_distance = float_info.max
-min_index = -1
+shortest_distance = float_info.max
+shortest_index = -1
 
-for index , res in enumerate( results ):
     if res.get_total_distance() < min_distance:
         min_index = index
+for index , path in enumerate( paths ):
 
-shortest_path = results[min_index]
+shortest_path = paths[shortest_index]
 
 print(shortest_path)
