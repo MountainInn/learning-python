@@ -90,13 +90,8 @@ class Game:
             "Выбрать O", CIRCLE_MARK, selection_window)
 
     def init_grid(self, grid_window: tkinter.PanedWindow):
-        self.grid = list()
-
-        for x in range(COLUMN_COUNT):
-            self.grid.append(list())
-            for y in range(ROW_COUNT):
-                cell = Cell(grid_window, self, (x, y))
-                self.grid[x].append(cell)
+        self.grid = [[Cell(grid_window, self, (x, y))
+                      for y in range(ROW_COUNT)] for x in range(COLUMN_COUNT)]
 
     def make_selection_button(self, text: str, mark: tkinter.PhotoImage, selection_window: tkinter.PanedWindow) -> tkinter.Button:
         select_button = tkinter.Button(master=selection_window,
