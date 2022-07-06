@@ -1,9 +1,7 @@
 import tkinter
-import math
 import tkinter.messagebox
+import math
 import random
-from typing import List
-from enum import Enum
 from functools import partial
 from itertools import chain
 
