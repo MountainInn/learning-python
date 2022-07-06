@@ -68,7 +68,6 @@ class Player:
 
     def claim_cell(self, cell: Cell):
         self.owned_cells.append(cell)
-        self.owned_cells.sort(key=lambda c: (c.x, c.y))
         toggle_button(cell, False)
         cell.player_id = self.id
         cell.configure(image=self.mark)
