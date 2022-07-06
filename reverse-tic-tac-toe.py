@@ -151,8 +151,8 @@ class Game:
 
     def generate_non_diagonal_coords(self, cell: Cell) -> list[list[tuple[int, int]]]:
         return [
-            list(map(lambda i: (cell.x, i), list(range(ROW_COUNT)))),
-            list(map(lambda i: (i, cell.y), list(range(COLUMN_COUNT))))
+            [(cell.x, i) for i in range(ROW_COUNT)],
+            [(i, cell.y) for i in range(COLUMN_COUNT)],
         ]
 
     def generate_diagonal_coords(self, cell: Cell) -> list[list[tuple[int, int]]]:
