@@ -1,4 +1,3 @@
-import itertools
 from abc import ABC, abstractmethod
 import time
 import redis
