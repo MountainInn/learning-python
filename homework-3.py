@@ -67,13 +67,13 @@ def cache_result(cache: Cache):
     return decorator
 
 
-dict_cache: DictCache = DictCache()
-redis_cache: RedisCache = RedisCache()
-
-
 def multiplier(number: int):
     '''Умножает заданное число на 2.'''
     return number * 2
+
+
+dict_cache: DictCache = DictCache()
+redis_cache: RedisCache = RedisCache()
 
 
 @cache_result(dict_cache)
