@@ -124,7 +124,6 @@ def repeated_multiplier(number: int):
 
 
 def main():
-    redis_cache.flushdb()
 
     print("Кэширование в словарь:")
     multiplier_with_dict(2)
@@ -137,6 +136,8 @@ def main():
     multiplier_with_dict(9)
 
     print("\nКэширование в redis:")
+    redis_cache.flushdb()
+
     multiplier_with_redis(2)
     multiplier_with_redis(3)
 
