@@ -101,16 +101,14 @@ def repeat(call_count: int, start_sleep_time: float, factor: float, border_sleep
 
         def wrapper(*args, **kwargs):
             repeat_count: int = 0
-            sleep_time: float = start_sleep_time
 
             while repeat_count < call_count:
+                sleep_time = min(start_sleep_time * factor ** repeat_count, border_sleep_time)
                 time.sleep(sleep_time)
 
                 result = func(*args, **kwargs)
                 output(repeat_count, sleep_time, result)
 
-                sleep_time = min(sleep_time + start_sleep_time *
-                                 2 ** factor, border_sleep_time)
                 repeat_count += 1
 
         return wrapper
